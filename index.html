@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DSGN</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <aside>
+            <div class="paint-tools">
+                <div class="tool">
+                    <button type="button" class="eraser btn" id="eraser">eraser</button>
+                </div>
+                <div class="tool">
+                    <button type="button" class="brush btn" id="brush">brush</button>
+                </div>
+                <div class="tool">
+                    <button type="button" class="brush btn">text</button>
+                </div>
+                <div class="tool">
+                    <button type="button" class="brush btn">picker</button>
+                </div>
+                <div class="tool">
+                    <button type="button" class="brush btn">move</button>
+                </div>
+                <div class="tool">
+                    <button type="button" class="brush btn">shape</button>
+                </div>
+                <div class="tool">
+                    <button type="button" class="brush btn">bucket</button>
+                </div>
+                <div class="tool">
+                    <button type="button" class="brush btn">stamp</button>
+                </div>
+            </div>
+            <div class="select-shape">
+                <p>Select your shape</p>
+                <br>
+                <select name="select-shape" id="select-shape" class="form-control">
+                    <option value="circle">circle</option>
+                    <option value="square">square</option>
+                </select>
+            </div>
+        </aside>
+        
+        <div class="canvas-wrapper">
+            <canvas id="canvas"></canvas>
+        </div>
+        
+        <div class="tools">
+            <div class="color-section">
+                <p>Pick color</p>
+                <br>
+                <div class="color-sample" id="color-sample"></div>
+                <br>
+                <div class="form-group">
+                    <label for="">Red</label>
+                    <input type="range" name="red" id="red" value="0" min="0" max="255">
+                </div>
+                <div class="form-group">
+                    <label for="">Green</label>
+                    <input type="range" name="green" id="green" value="0" min="0" max="255">
+                </div>
+                <div class="form-group">
+                    <label for="">Blue</label>
+                    <input type="range" name="blue" id="blue" value="0" min="0" max="255">
+                </div>
+            </div>
+            <div class="brush-size">
+                <p>Brush size</p>
+                <br>
+                <div class="form-group" style="display: flex; gap: 5px">
+                    <input type="range" name="brush-size" id="brush-size" value="0" min="0" max="100">
+                    <input type="text" value="0px" disabled style="width: 50px; padding: 5px;">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="./js/Brush/Brush.js"></script>
+    <script src="./js/pickcolor.js"></script>
+    <script src="./js/script.js"></script>
+</body>
+</html>

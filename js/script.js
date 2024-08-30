@@ -13,18 +13,28 @@ let brushPosition = {
     y: 0
 };
 
-let size = 5;
+let size = 1;
 let brush;
 let isDrawing = false;
 let shape = 'circle'
 let mode = 'brush'
 
 function changeBrushSize() {
-    console.log(brushSize.value);
+    size = brushSize.value
+
+    document.getElementById('size-value').value = brushSize.value + 'px'
 }
 
 function changeMode(e) {
     mode = e.target.innerText
+
+    if(mode == 'eraser') {
+        eraser.classList.add('btn-active')
+        brushBtn.classList.remove('btn-active')
+    } else {
+        brushBtn.classList.add('btn-active')
+        eraser.classList.remove('btn-active')
+    }
 }
 
 function changeShape() {
@@ -42,6 +52,7 @@ function updateBrushPosition(e) {
     }
 }
 
+brushSize.addEventListener('input', changeBrushSize);
 eraser.addEventListener('click', changeMode)
 brushBtn.addEventListener('click', changeMode)
 

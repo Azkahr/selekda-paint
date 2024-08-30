@@ -7,14 +7,22 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div class="container">
+    <div class="loading-screen" id="loading-screen">
+        <div class="text-loading">
+            <h1>Welcome to DSGN</h1>
+        </div>
+    </div>
+    <div class="create-new" id="create-new">
+        <button class="btn-create" id="btn-create">Create new</button>
+    </div>
+    <div class="container" id="container" style="display: none;">
         <aside>
             <div class="paint-tools">
                 <div class="tool">
                     <button type="button" class="eraser btn" id="eraser">eraser</button>
                 </div>
                 <div class="tool">
-                    <button type="button" class="brush btn" id="brush">brush</button>
+                    <button type="button" class="brush btn btn-active" id="brush">brush</button>
                 </div>
                 <div class="tool">
                     <button type="button" class="brush btn">text</button>
@@ -50,35 +58,51 @@
         </div>
         
         <div class="tools">
-            <div class="color-section">
-                <p>Pick color</p>
-                <br>
-                <div class="color-sample" id="color-sample"></div>
-                <br>
-                <div class="form-group">
-                    <label for="">Red</label>
-                    <input type="range" name="red" id="red" value="0" min="0" max="255">
+            <fieldset>
+                <div class="color-section">
+                    <p>Pick color</p>
+                    <br>
+                    <div class="color-sample" id="color-sample"></div>
+                    <br>
+                    <div class="form-group">
+                        <label for="">Red</label>
+                        <input type="range" name="red" id="red" value="0" min="0" max="255">
+                    </div>
+                    <div class="form-group">
+                        <label for="">Green</label>
+                        <input type="range" name="green" id="green" value="0" min="0" max="255">
+                    </div>
+                    <div class="form-group">
+                        <label for="">Blue</label>
+                        <input type="range" name="blue" id="blue" value="0" min="0" max="255">
+                    </div>
                 </div>
-                <div class="form-group">
-                    <label for="">Green</label>
-                    <input type="range" name="green" id="green" value="0" min="0" max="255">
+            </fieldset>
+            <fieldset>
+                <div class="brush-size">
+                    <p>Brush size</p>
+                    <br>
+                    <div class="form-group" style="display: flex; gap: 5px">
+                        <input type="range" name="brush-size" id="brush-size" value="1" min="0" max="100">
+                        <input type="text" id="size-value" value="1px" disabled style="width: 50px; padding: 5px;">
+                    </div>
                 </div>
-                <div class="form-group">
-                    <label for="">Blue</label>
-                    <input type="range" name="blue" id="blue" value="0" min="0" max="255">
-                </div>
-            </div>
-            <div class="brush-size">
-                <p>Brush size</p>
-                <br>
-                <div class="form-group" style="display: flex; gap: 5px">
-                    <input type="range" name="brush-size" id="brush-size" value="0" min="0" max="100">
-                    <input type="text" value="0px" disabled style="width: 50px; padding: 5px;">
-                </div>
-            </div>
+            </fieldset>
         </div>
     </div>
 
+    <script>
+        window.onload = () => {
+            setTimeout(() => {
+                document.getElementById('loading-screen').style.display = 'none'
+            }, 1000);
+        }
+
+        document.getElementById('btn-create').addEventListener('click', function() {
+            document.getElementById('container').style.display = 'flex'
+            document.getElementById('create-new').style.display = 'none'
+        })
+    </script>
     <script src="./js/Brush/Brush.js"></script>
     <script src="./js/pickcolor.js"></script>
     <script src="./js/script.js"></script>
